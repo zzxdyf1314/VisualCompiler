@@ -1,10 +1,10 @@
 struct Complex
 {
-  int real;
+  int real, image;
 };
 
 int main()
 {
   struct Complex x;
-  x.real = 1;
+  x.image = 1;
 }
