@@ -588,7 +588,7 @@ int main(int argc, char **argv)
         {
             if (nodeIsChild[j] != 1)
             {
-                Preorder(nodeList[j], 0);
+                /*Preorder(nodeList[j], 0);*/
             }
         }
     }
