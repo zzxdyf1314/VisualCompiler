@@ -3,6 +3,7 @@
 int i;
 /*test the plug of gitglutter*/
 /*test the cloud*/
+/*test ctags*/
 
 Ast newAst(char *name, int num, ...)
 {
