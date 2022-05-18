@@ -134,7 +134,7 @@ VarList:ParamDec COMMA VarList {
        ;
 ParamDec:Specifire VarDec {
         $$ = newAst("ParamDec", 2, $1, $2);
-        if (ifvardef($2) || findarray($2)) {
+        if (ifvardef($2) || ifarraydef($2)) {
             printf("Error type 7 at line %d:Redefined Variable '%s'\n", yylineno, $2->content);
           } else if($2->tag == 4) {
             newarray(2, $1, $2);
@@ -185,7 +185,7 @@ DefList:Def DefList {
        ;
 Def:Specifire DecList SEMI {
    $$ = newAst("Def", 3, $1, $2, $3);
-   if (ifvardef($2) || findarray($2)) {
+   if (ifvardef($2) || ifarraydef($2)) {
       printf("Error type 7 at line %d:Redefined Variable '%s'\n", yylineno, $2->content);
      } else if($2->tag == 4) {
         newarray(2, $1, $2);
@@ -267,7 +267,7 @@ Exp:Exp ASSIGNOP Exp {
    }
    |ID LP Args RP {
    $$ = newAst("Exp", 4, $1, $2, $3, $4);
-   if(!findfunc($1) && (ifvardef($1)||findarray($1))) {
+   if(!findfunc($1) && (ifvardef($1)||ifarraydef($1))) {
 			printf("Error type 4 at Line %d:'%s' is not a function.\n ",yylineno,$1->content);
 		} else if(!findfunc($1)) {
 			  printf("Error type 5 at Line %d:Undefined function %s\n ",yylineno,$1->content);
@@ -277,7 +277,7 @@ Exp:Exp ASSIGNOP Exp {
    }
    |ID LP RP {
    $$ = newAst("Exp", 3, $1, $2, $3);
-   if(!findfunc($1) && (ifvardef($1)||findarray($1))) {
+   if(!findfunc($1) && (ifvardef($1)||ifarraydef($1))) {
 			printf("Error type 4 at Line %d:'%s' is not a function.\n ",yylineno,$1->content);
 		} else if(!findfunc($1)) {
 			  printf("Error type 5 at Line %d:Undefined function %s\n ",yylineno,$1->content);
@@ -291,7 +291,7 @@ Exp:Exp ASSIGNOP Exp {
    }
    |ID {
    $$ = newAst("Exp", 1, $1);
-   if (!ifvardef($1) && !findarray($1)) {
+   if (!ifvardef($1) && !ifarraydef($1)) {
       printf("Error type 1 at line %d:Undefined Variable %s\n ", yylineno, $1->content);
     } else {
       $$->type = typevar($1);
