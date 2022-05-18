@@ -1,4 +1,5 @@
 #include "../include/semantic.h"
+#include <stdio.h>
 
 int i;
 /*test the plug of gitglutter*/
@@ -480,7 +481,7 @@ void newarray(int num, ...)
     arraytail = res;
 }
 // 数组是否已经定义
-int findarray(pnode val)
+int ifarraydef(pnode val)
 {
     array *temp = (array *)malloc(sizeof(array *));
     temp = arrayhead->next;

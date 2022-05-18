@@ -15,13 +15,13 @@ typedef struct var_ {
 } var;
 
 
-void newvar(int num, ...);
+void newvar(int num, ...);     /*新创建一个变量*/
 
-int ifvardef(pnode val);
+int ifvardef(pnode val);      /*检查变量是否已经定义*/
 
-char *typevar(pnode val);
+char *typevar(pnode val);     /*判断变量的类型*/
 
-int checkleft(pnode val);
+int checkleft(pnode val);     /*用于检查左侧是否是可更改的左值, 比如=左侧是否是变量*/
 
 // 函数符号表的结点
 typedef struct func_
@@ -38,8 +38,8 @@ typedef struct func_
     char *va_type[10];
     struct func_ *next;
 }func;
-void getdetype(pnode val);//定义的参数
-void getretype(pnode val);//实际的参数
+void getdetype(pnode val);//定义的参数 de: declartion
+void getretype(pnode val);//实际的参数 re: real
 void getargs(pnode Args);//获取实参
 int checkrtype(pnode ID,pnode Args);//检查形参与实参是否一致
 // 建立函数符号
@@ -68,7 +68,7 @@ array static *arrayhead,*arraytail;
 // 建立数组符号
 void newarray(int num, ...);
 // 查找数组是否已经定义
-int findarray(pnode val);
+int ifarraydef(pnode val);
 // 数组类型
 char *typearray(pnode val);
 
