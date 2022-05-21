@@ -126,4 +126,22 @@ AERROR .
 int yywrap() {
   return 1;
 }
-/*由于flex将要由bison调用,故不用添加main函数*/
+/*[>由于flex将要由bison调用,故不用添加main函数<]*/
+/*int main(int argc,char** argv){*/
+  /*if(argc<2){*/
+    /*yylex();*/
+    /*return 0;*/
+  /*}*/
+  /*for(i=1;i<argc;i++){*/
+    /*f=fopen(argv[i],"r");*/
+    /*if(!f){*/
+      /*perror(argv[i]);*/
+      /*return 1;*/
+    /*}*/
+    /*comment_flag = 0;*/
+        /*yyrestart(f);*/
+        /*yylex();*/
+        /*fclose(f);*/
+  /*}*/
+  /*return 0;*/
+/*}*/

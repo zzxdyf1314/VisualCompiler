@@ -1,0 +1,49 @@
+ExtDef(1)
+ StructSpecifire(1)
+  StructSpecifire(1)
+   STRUCT(1)
+   OptTag(1)
+    ID: Complex
+   LC(2)
+   DefList(3)
+    Def(3)
+     Specifire(3)
+      TYPE: int
+     DecList(3)
+      Dec(3)
+       VarDec(3)
+        ID: real
+     SEMI(3)
+    
+   RC(4)
+ SEMI(4)
+Specifire(6)
+ TYPE: int
+FunDec(6)
+ ID: main
+ LP(6)
+ RP(6)
+LC(7)
+DefList(8)
+ Def(8)
+  StructSpecifire(8)
+   StructSpecifire(8)
+    STRUCT(8)
+    Tag(8)
+     ID: Complex
+  DecList(8)
+   Dec(8)
+    VarDec(8)
+     ID: x
+  SEMI(8)
+ 
+SEMI(9)
+Exp(9)
+ Exp(9)
+  Exp(9)
+   ID: x
+  GETMEMBER(9)
+  ID: real
+ ASSIGNOP(9)
+ Exp(9)
+  INT: 1
